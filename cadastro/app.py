@@ -20,7 +20,7 @@ def main():
 def gravar():
   nome = request.form['nome']
   cpf = request.form['cpf']
-  endeco = request.form['endereco']
+  endereco = request.form['endereco']
   if nome and cpf and endereco:
     conn = mysql.connect()
     cursor = conn.cursor()
