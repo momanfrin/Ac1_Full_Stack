@@ -24,7 +24,7 @@ def gravar():
   if nome and cpf and endereco:
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute('insert into ac1 (name, cpf, endereco) VALUES (%s, %s, %s)', (nome, cpf, endereco))
+    cursor.execute('insert into ac1 (nome, cpf, endereco) VALUES (%s, %s, %s)', (nome, cpf, endereco))
     conn.commit()
   return render_template('index.html')
 
@@ -33,7 +33,7 @@ def gravar():
 def listar():
   conn = mysql.connect()
   cursor = conn.cursor()
-  cursor.execute('select name, cpf, endereco from ac1')
+  cursor.execute('select nome, cpf, endereco from ac1')
   data = cursor.fetchall()
   conn.commit()
   return render_template('lista.html', datas=data)
